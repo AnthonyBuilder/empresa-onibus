@@ -15,7 +15,10 @@ import {
   SidebarRail,
 } from '@/components/ui/sidebar'
 
-// This is sample data.
+import { Routes, Route, Link } from "react-router"
+import Empresas from "@/app/routes/empresas"
+import SubEmpresas from "@/app/routes/subempresas"
+
 const data = {
   navMain: [
     {
@@ -24,11 +27,14 @@ const data = {
       items: [
         {
           title: "Empresas",
-          url: "#",
+          url: "empresas",
+          isActive: true,
+          element: <Empresas/>
         },
         {
           title: "Sub-Empresas",
-          url: "#",
+          url: "sub-empresas",
+          element: <SubEmpresas/>
         },
       ],
     },
@@ -39,23 +45,28 @@ const data = {
         {
           title: "Garagens",
           url: "#",
+          element: null,
         },
         {
           title: "Linhas",
           url: "#",
-          isActive: true,
+          isActive: false,
+          element: null,
         },
         {
           title: "Operações",
           url: "#",
+          element: null,
         },
         {
           title: "Regiões",
           url: "#",
+          element: null,
         },
         {
           title: "Usuarios",
           url: "#",
+          element: null,
         }
       ]
     },
@@ -64,6 +75,7 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
+    
     <Sidebar {...props}>
       <SidebarHeader>
        <div className="flex items-center justify-between">
@@ -80,7 +92,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 {item.items.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild isActive={item.isActive}>
-                      <a href={item.url}>{item.title}</a>
+                      <Link to={item.url}>{item.title}</Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}

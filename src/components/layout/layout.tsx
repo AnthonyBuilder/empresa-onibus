@@ -3,6 +3,9 @@ import { AppSidebar } from "@/components/layout/app-sidebar"
 import { Separator } from "@radix-ui/react-separator"
 import { SearchForm } from "./search-form"
 import { ProfileSwitcher } from "./profile-switcher"
+import { Outlet, Route, Routes } from "react-router"
+import Empresas from "@/app/routes/empresas"
+import SubEmpresas from "@/app/routes/subempresas"
 
 var viewName = "Empresas"
 
@@ -33,6 +36,11 @@ export default function Layout() {
         <div className="flex flex-1 flex-col gap-4 p-4">
           <SearchForm />
           <div className="grid auto-rows-min gap-4 md:grid-cols-3">
+            <Routes>
+              <Route path="/empresas" element={<Empresas />} />
+              <Route path="/sub-empresas" element={<SubEmpresas />}> {/* Parent Route with a layout component */}
+              </Route>
+            </Routes>
             <div className="bg-muted/50 aspect-video rounded-xl" />
             <div className="bg-muted/50 aspect-video rounded-xl" />
             <div className="bg-muted/50 aspect-video rounded-xl" />
