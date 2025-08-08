@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Check, ChevronsUpDown, GalleryVerticalEnd, PersonStanding } from "lucide-react"
+import { Check, ChevronsUpDown, PersonStanding } from "lucide-react"
 
 import {
   DropdownMenu,
@@ -15,7 +15,7 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
 
-export function VersionSwitcher({
+export function ProfileSwitcher({
   versions,
   defaultVersion,
 }: {
@@ -37,7 +37,7 @@ export function VersionSwitcher({
                 <PersonStanding className="size-4" />
               </div>
               <div className="flex flex-col gap-0.5 leading-none">
-                <span className="font-bold">Perfis</span>
+                <span className="font-bold">Adiministrador</span>
                 <span className="font-light">{selectedVersion}</span>
               </div>
               <ChevronsUpDown className="ml-auto" />

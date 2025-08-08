@@ -1,11 +1,15 @@
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/layout/app-sidebar"
-import React from "react"
-import { AppHeader } from "@/components/layout/app-header"  
 import { Separator } from "@radix-ui/react-separator"
-import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from "../ui/breadcrumb"
 import { SearchForm } from "./search-form"
- 
+import { ProfileSwitcher } from "./profile-switcher"
+
+var viewName = "Empresas"
+
+const data = {
+  versions: ["Gustavo", "Anthony", "Roberto"],
+}
+
 export default function Layout() {
   return (
     <SidebarProvider>
@@ -17,10 +21,17 @@ export default function Layout() {
             orientation="vertical"
             className="mr-2 data-[orientation=vertical]:h-4"
           />
-          <h2 className="text-lg font-semibold">Empresas</h2>
+          <h2 className="text-lg font-semibold">{viewName}</h2>
+
+          <div className="flex-1 max-w-3xs ml-auto">
+             <ProfileSwitcher
+              versions={data.versions}
+              defaultVersion={data.versions[0]}
+            />
+          </div>
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4">
-            <SearchForm/>
+          <SearchForm />
           <div className="grid auto-rows-min gap-4 md:grid-cols-3">
             <div className="bg-muted/50 aspect-video rounded-xl" />
             <div className="bg-muted/50 aspect-video rounded-xl" />

@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import { SearchForm } from '@/components/layout/search-form'
-import { VersionSwitcher } from '@/components/layout/version-switcher'
+import { ProfileSwitcher } from '@/components/layout/profile-switcher'
 import {
   Sidebar,
   SidebarContent,
@@ -17,7 +17,6 @@ import {
 
 // This is sample data.
 const data = {
-  versions: ["Gustavo", "Anthony", "Roberto"],
   navMain: [
     {
       title: "Principal",
@@ -67,10 +66,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>
-        <VersionSwitcher
-          versions={data.versions}
-          defaultVersion={data.versions[0]}
-        />
+       <div className="flex items-center justify-between">
+          <h2 className="text-lg font-semibold">Nome Empresa</h2>
+        </div>
       </SidebarHeader>
       <SidebarContent>
         {/* We create a SidebarGroup for each parent. */}
