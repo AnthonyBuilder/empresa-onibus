@@ -15,7 +15,7 @@ import {
 export default function Empresas() {
   return (
     <div>
-      <div className="justify-self-start text-left mt-4 p-5 w-full">
+      <div className="justify-self-start text-left mt-2 p-5 w-full">
         <div className="flex flex-row gap-4 items-center">
           <div className="flex-1">
             
@@ -28,9 +28,8 @@ export default function Empresas() {
       </div>
 
       <div className="flex-1 p-5">
-        <p className="text-muted-foreground mb-4">Lista de empresas registradas no sistema.</p>
         <Table>
-          <TableCaption>A list of your recent invoices.</TableCaption>
+          <TableCaption>Lista de empresas registradas no sistema.</TableCaption>
           <TableHeader>
             <TableRow>
               <TableHead className="pl-20">Cabeçalho A</TableHead>
