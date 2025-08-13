@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { SearchForm } from "@/components/layout/search-form";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,25 +12,35 @@ import {
 } from "@/components/ui/table"
 
 export default function Empresas() {
-  const array = [
+  const [array, setArray] = useState([
     { a: "Empresa 1", b: "B1", c: "C1", d: "D1" },
     { a: "Empresa 2", b: "B2", c: "C2", d: "D2" },
     { a: "Empresa 3", b: "B3", c: "C3", d: "D3" },
     { a: "Empresa 4", b: "B4", c: "C4", d: "D4 " },
     { a: "Empresa 5", b: "B5", c: "C5", d: "D5" },
-  ];
+  ]);
 
   return (
     <div>
       <div className="justify-self-start text-left mt-2 p-5 w-full">
         <div className="flex flex-row gap-4 items-center">
           <div className="flex-1">
-
             <h1 className="text-2xl font-bold">Empresas</h1>
             <p className="mt-2">Relatorio de todas as empresas registradas.</p>
-            <Button variant="outline" className="mt-4">Adicionar Empresa</Button>
+            <Button
+              variant="outline"
+              className="mt-4"
+              onClick={() =>
+                setArray([
+                  ...array,
+                  { a: "Nova Empresa", b: "B6", c: "C6", d: "D6" },
+                ])
+              }
+            >
+              Adicionar Empresa
+            </Button>
           </div>
-          <SearchForm  className="place-self-start" />
+          <SearchForm className="place-self-start" />
         </div>
       </div>
 
