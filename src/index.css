@@ -75,7 +75,7 @@
 }
 
 a {
-  font-weight: 500;
+  font-weight: 600;
   color: #1c3faa;
   text-decoration: inherit;
 }
@@ -122,9 +122,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
     a {
-      font-weight: 500;
       color: #1c3faa;
-      text-decoration: inherit;
     }
   a:hover {
     color: #1c3faa;
@@ -136,9 +134,7 @@ button:focus-visible {
 
 @media (prefers-color-scheme: dark) {
   a {
-    font-weight: 500;
     color: #3f6fff;
-    text-decoration: inherit;
   }
   a:hover {
     color: #beceff;
