@@ -63,9 +63,9 @@ export function ProfileSwitcher({
               </DropdownMenuItem>
             ))}
 
-              <div className="justify-self-end m-1 mt-2">
+              <div className="justify-self-end m-3">
                 <NavLink to="/login">
-                <h2 className="text-sm  text-end">
+                <h2 className="text-end font-bold">
                   Login
                 </h2>
               </NavLink>

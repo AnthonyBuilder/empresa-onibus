@@ -27,7 +27,7 @@ export default function Layout() {
                     />
                     <h2 className="text-lg font-semibold">{viewName}</h2>
 
-                    <div className="flex-1 max-w-2xs ml-auto">
+                    <div className="flex-1 max-w-fit ml-auto">
                         <ProfileSwitcher
                             versions={data.versions}
                             defaultVersion={data.versions[0]}
