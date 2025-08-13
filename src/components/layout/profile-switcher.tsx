@@ -14,6 +14,11 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
+import { Link, Navigate, NavLink } from "react-router"
+
+import { useNavigate } from "react-router-dom";
+import { Button } from "../ui/button"
+
 
 export function ProfileSwitcher({
   versions,
@@ -23,6 +28,7 @@ export function ProfileSwitcher({
   defaultVersion: string
 }) {
   const [selectedVersion, setSelectedVersion] = React.useState(defaultVersion)
+  const navigate = useNavigate()
 
   return (
     <SidebarMenu>
@@ -56,6 +62,15 @@ export function ProfileSwitcher({
                 {version === selectedVersion && <Check className="ml-auto" />}
               </DropdownMenuItem>
             ))}
+
+              <div className="justify-self-end m-1 mt-2">
+                <NavLink to="/login">
+                <h2 className="text-sm  text-end">
+                  Login
+                </h2>
+              </NavLink>
+
+              </div>
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>

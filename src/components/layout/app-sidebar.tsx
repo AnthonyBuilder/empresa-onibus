@@ -15,7 +15,7 @@ import {
   SidebarRail,
 } from '@/components/ui/sidebar'
 
-import { Routes, Route, Link } from "react-router"
+import { Routes, Route, Link, NavLink } from "react-router"
 import Empresas from "@/app/routes/empresas"
 import SubEmpresas from "@/app/routes/subempresas"
 
@@ -83,7 +83,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </div>
       </SidebarHeader>
       <SidebarContent>
-        {/* We create a SidebarGroup for each parent. */}
         {data.navMain.map((item) => (
           <SidebarGroup key={item.title}>
             <SidebarGroupLabel>{item.title}</SidebarGroupLabel>
@@ -92,7 +91,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 {item.items.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild isActive={item.isActive}>
-                      <Link to={item.url}>{item.title}</Link>
+                      <NavLink to={item.url} end>{item.title}</NavLink>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}

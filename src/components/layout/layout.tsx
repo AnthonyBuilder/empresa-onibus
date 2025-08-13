@@ -6,11 +6,12 @@ import { ProfileSwitcher } from "./profile-switcher"
 import { Outlet, Route, Routes } from "react-router"
 import Empresas from "@/app/routes/empresas"
 import SubEmpresas from "@/app/routes/subempresas"
+import LoginPage from "@/app/routes/login/page"
 
 var viewName = "Empresas"
 
 const data = {
-    versions: ["Gustavo", "Anthony", "Roberto"],
+    versions: ["Gustavo", "Anthony"],
 }
 
 export default function Layout() {
@@ -26,7 +27,7 @@ export default function Layout() {
                     />
                     <h2 className="text-lg font-semibold">{viewName}</h2>
 
-                    <div className="flex-1 max-w-3xs ml-auto">
+                    <div className="flex-1 max-w-2xs ml-auto">
                         <ProfileSwitcher
                             versions={data.versions}
                             defaultVersion={data.versions[0]}
@@ -35,11 +36,7 @@ export default function Layout() {
                 </header>
                 <div className="flex flex-1 flex-col gap-4 p-4">
                     <div className="flex flex-1 flex-col">
-                        <Routes>
-                            <Route path="/empresas" element={<Empresas />} />
-                            <Route path="/sub-empresas" element={<SubEmpresas />}>
-                            </Route>
-                        </Routes>
+                        <Outlet />
                     </div>
                 </div>
             </SidebarInset>

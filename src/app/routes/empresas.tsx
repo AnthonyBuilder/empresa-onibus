@@ -10,6 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { Outlet } from "react-router";
 
 export default function Empresas() {
   const [array, setArray] = useState([
