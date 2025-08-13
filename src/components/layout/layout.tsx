@@ -1,17 +1,16 @@
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/layout/app-sidebar"
 import { Separator } from "@radix-ui/react-separator"
-import { SearchForm } from "./search-form"
+
 import { ProfileSwitcher } from "./profile-switcher"
-import { Outlet, Route, Routes } from "react-router"
-import Empresas from "@/app/routes/empresas"
-import SubEmpresas from "@/app/routes/subempresas"
-import LoginPage from "@/app/routes/login/page"
+import { Outlet } from "react-router"
+
 
 var viewName = "Empresas"
 
+
 const data = {
-    versions: ["Gustavo", "Anthony"],
+    profilesName: ["Gustavo", "Anthony"],
 }
 
 export default function Layout() {
@@ -29,8 +28,8 @@ export default function Layout() {
 
                     <div className="flex-1 max-w-fit ml-auto">
                         <ProfileSwitcher
-                            versions={data.versions}
-                            defaultVersion={data.versions[0]}
+                            profilesName={data.profilesName}
+                            defaultProfileName={data.profilesName[0]}
                         />
                     </div>
                 </header>

@@ -121,11 +121,30 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+    a {
+      font-weight: 500;
+      color: #1c3faa;
+      text-decoration: inherit;
+    }
   a:hover {
     color: #1c3faa;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #1c3faa;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  a {
+    font-weight: 500;
+    color: #3f6fff;
+    text-decoration: inherit;
+  }
+  a:hover {
+    color: #beceff;
+  }
+  button {
+    background-color: #1c3faa;
   }
 }
 

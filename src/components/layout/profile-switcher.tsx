@@ -21,14 +21,13 @@ import { Button } from "../ui/button"
 
 
 export function ProfileSwitcher({
-  versions,
-  defaultVersion,
+  profilesName,
+  defaultProfileName,
 }: {
-  versions: string[]
-  defaultVersion: string
+  profilesName: string[]
+  defaultProfileName: string
 }) {
-  const [selectedVersion, setSelectedVersion] = React.useState(defaultVersion)
-  const navigate = useNavigate()
+  const [selectedProfileName, setSelectedProfileName] = React.useState(defaultProfileName)
 
   return (
     <SidebarMenu>
@@ -43,8 +42,8 @@ export function ProfileSwitcher({
                 <PersonStanding className="size-4" />
               </div>
               <div className="flex flex-col gap-0.5 leading-none">
-                <span className="font-bold">Adiministrador</span>
-                <span className="font-light">{selectedVersion}</span>
+                <span className="font-bold">Admin</span>
+                <span className="font-light">{selectedProfileName}</span>
               </div>
               <ChevronsUpDown className="ml-auto" />
             </SidebarMenuButton>
@@ -53,13 +52,13 @@ export function ProfileSwitcher({
             className="w-(--radix-dropdown-menu-trigger-width)"
             align="start"
           >
-            {versions.map((version) => (
+            {profilesName.map((name) => (
               <DropdownMenuItem
-                key={version}
-                onSelect={() => setSelectedVersion(version)}
+                key={name}
+                onSelect={() => setSelectedProfileName(name)}
               >
-                {version}{" "}
-                {version === selectedVersion && <Check className="ml-auto" />}
+                {name}{" "}
+                {name === selectedProfileName && <Check className="ml-auto" />}
               </DropdownMenuItem>
             ))}
 
