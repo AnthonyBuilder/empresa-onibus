@@ -11,6 +11,7 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { Outlet } from "react-router";
+import { Eye, Pencil, Trash } from "lucide-react";
 
 export default function Empresas() {
   const [array, setArray] = useState([
@@ -58,11 +59,18 @@ export default function Empresas() {
           </TableHeader>
           <TableBody>
             {array.map((element, index) => (
-              <TableRow key={index}>
+              <TableRow key={index} className="group">
                 <TableCell className="pl-20 font-medium text-left">{element.a}</TableCell>
                 <TableCell className="text-left">{element.b}</TableCell>
                 <TableCell className="text-left">{element.c}</TableCell>
                 <TableCell className="text-left">{element.d}</TableCell>
+                <TableCell>
+                  <div className="invisible flex text-center flex-row justify-center group-hover:visible">
+                    <Eye />
+                    <Pencil className="ml-3 mr-3" />
+                    <Trash />
+                  </div>
+                </TableCell> 
               </TableRow>
             ))}
           </TableBody>
