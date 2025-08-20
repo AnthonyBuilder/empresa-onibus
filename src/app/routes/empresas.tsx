@@ -13,6 +13,15 @@ import {
 import { Outlet } from "react-router";
 import { Eye, Pencil, Trash } from "lucide-react";
 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+
 export default function Empresas() {
   const [array, setArray] = useState([
     { a: "Empresa 1", b: "B1", c: "C1", d: "D1" },
@@ -27,8 +36,23 @@ export default function Empresas() {
       <div className="justify-self-start text-left mt-2 p-5 w-full">
         <div className="flex flex-row gap-4 items-center">
           <div className="flex-1">
+            
             <h1 className="text-2xl font-bold">Empresas</h1>
             <p className="mt-2">Relatorio de todas as empresas registradas.</p>
+             <Dialog>
+              <DialogTrigger className="m-5 justify-self-end">Pop</DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Titulo</DialogTitle>
+                  <DialogDescription className="mt-5">
+                    Esta ação não pode ser desfeita. Isso excluirá permanentemente sua conta
+                    e removerá seus dados de nossos servidores.
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
+
+
             <Button
               variant="outline"
               className="mt-4"
