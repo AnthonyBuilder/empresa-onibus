@@ -1,7 +1,5 @@
 import * as React from "react"
 
-import { SearchForm } from '@/components/layout/search-form'
-import { ProfileSwitcher } from '@/components/layout/profile-switcher'
 import {
   Sidebar,
   SidebarContent,
@@ -12,10 +10,9 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarRail,
 } from '@/components/ui/sidebar'
 
-import { Routes, Route, Link, NavLink } from "react-router"
+import { NavLink } from "react-router"
 import Empresas from "@/app/routes/empresas"
 import SubEmpresas from "@/app/routes/subempresas"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog"
@@ -30,12 +27,12 @@ const data = {
           title: "Empresas",
           url: "empresas",
           isActive: true,
-          element: <Empresas/>
+          element: <Empresas />
         },
         {
           title: "Sub-Empresas",
           url: "sub-empresas",
-          element: <SubEmpresas/>
+          element: <SubEmpresas />
         },
       ],
     },
@@ -76,10 +73,10 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    
+
     <Sidebar {...props}>
       <SidebarHeader>
-       <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between">
           <h2 className="text-lg font-semibold">Nome Empresa</h2>
         </div>
       </SidebarHeader>
@@ -98,25 +95,25 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 ))}
 
               </SidebarMenu>
-              
+
             </SidebarGroupContent>
-            
+
           </SidebarGroup>
         ))}
 
-          {/* popup button message from user */}
-            <Dialog>
-              <DialogTrigger className="m-5 justify-self-end">Mensagem</DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>Titulo</DialogTitle>
-                  <DialogDescription className="mt-5">
-                    Esta ação não pode ser desfeita. Isso excluirá permanentemente sua conta
-                    e removerá seus dados de nossos servidores.
-                  </DialogDescription>
-                </DialogHeader>
-              </DialogContent>
-            </Dialog>
+        {/* popup button message from user */}
+        <Dialog>
+          <DialogTrigger className="m-5 justify-self-end">Mensagem</DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Titulo</DialogTitle>
+              <DialogDescription className="mt-5">
+                Esta ação não pode ser desfeita. Isso excluirá permanentemente sua conta
+                e removerá seus dados de nossos servidores.
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
       </SidebarContent>
     </Sidebar>
   )
