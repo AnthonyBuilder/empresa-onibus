@@ -104,7 +104,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SidebarGroup>
         ))}
 
-              {/* popup */}
+          {/* popup button message from user */}
             <Dialog>
               <DialogTrigger className="m-5 justify-self-end">Mensagem</DialogTrigger>
               <DialogContent>
