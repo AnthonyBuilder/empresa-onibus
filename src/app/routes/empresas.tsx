@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { SearchForm } from "@/components/layout/search-form";
 import { Button } from "@/components/ui/button";
+
 import {
   Table,
   TableBody,
@@ -10,7 +11,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { Outlet } from "react-router";
+
 import { Eye, Pencil, Trash } from "lucide-react";
 
 import {
@@ -36,23 +37,10 @@ export default function Empresas() {
       <div className="justify-self-start text-left mt-2 p-5 w-full">
         <div className="flex flex-row gap-4 items-center">
           <div className="flex-1">
-            
+
             <h1 className="text-2xl font-bold">Empresas</h1>
             <p className="mt-2">Relatorio de todas as empresas registradas.</p>
-             <Dialog>
-              <DialogTrigger className="m-5 justify-self-end">Pop</DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>Titulo</DialogTitle>
-                  <DialogDescription className="mt-5">
-                    Esta ação não pode ser desfeita. Isso excluirá permanentemente sua conta
-                    e removerá seus dados de nossos servidores.
-                  </DialogDescription>
-                </DialogHeader>
-              </DialogContent>
-            </Dialog>
-
-
+            
             <Button
               variant="outline"
               className="mt-4"
@@ -70,6 +58,7 @@ export default function Empresas() {
         </div>
       </div>
 
+      {/* tabelas */}
       <div className="flex-1 p-5">
         <Table>
           <TableCaption>Lista de empresas registradas no sistema.</TableCaption>
@@ -79,6 +68,7 @@ export default function Empresas() {
               <TableHead>Cabeçalho B</TableHead>
               <TableHead>Cabeçalho C</TableHead>
               <TableHead>Cabeçalho D</TableHead>
+              <TableHead className="pl-15">Ações</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -94,7 +84,7 @@ export default function Empresas() {
                     <Pencil className="ml-3 mr-3" />
                     <Trash />
                   </div>
-                </TableCell> 
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

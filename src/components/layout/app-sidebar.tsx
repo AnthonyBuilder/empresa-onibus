@@ -18,6 +18,7 @@ import {
 import { Routes, Route, Link, NavLink } from "react-router"
 import Empresas from "@/app/routes/empresas"
 import SubEmpresas from "@/app/routes/subempresas"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog"
 
 const data = {
   navMain: [
@@ -95,10 +96,27 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
+
               </SidebarMenu>
+              
             </SidebarGroupContent>
+            
           </SidebarGroup>
         ))}
+
+              {/* popup */}
+            <Dialog>
+              <DialogTrigger className="m-5 justify-self-end">Mensagem</DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Titulo</DialogTitle>
+                  <DialogDescription className="mt-5">
+                    Esta ação não pode ser desfeita. Isso excluirá permanentemente sua conta
+                    e removerá seus dados de nossos servidores.
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
       </SidebarContent>
     </Sidebar>
   )
