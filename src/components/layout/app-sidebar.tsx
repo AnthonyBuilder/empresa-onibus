@@ -16,6 +16,7 @@ import { NavLink } from "react-router"
 import Empresas from "@/app/routes/empresas"
 import SubEmpresas from "@/app/routes/subempresas"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog"
+import { Separator } from "../ui/separator"
 
 const data = {
   navMain: [
@@ -82,9 +83,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar {...props}>
       <SidebarHeader>
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold">Nome Empresa</h2>
+          <h2 className="text-xl font-bold p-2">Teleconsult</h2>
         </div>
+
       </SidebarHeader>
+      <Separator
+        orientation="horizontal"
+        className="mt-1 data-[orientation=vertical]:h-max"
+      />
       <SidebarContent>
         {data.navMain.map((item) => (
           <SidebarGroup key={item.title}>

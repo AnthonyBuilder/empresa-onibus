@@ -41,14 +41,13 @@ export default function Empresas() {
     setCnpjValue(event.target.value);
   }
 
-  const [array, setArray] = useState([
-    { a: "Empresa 1", b: "B1", c: "C1", d: "D1" }
-  ]);
+  type Empresa = { a: string; b: string };
+  const [array, setArray] = useState<Empresa[]>([]);
 
   function addEmpresa(nome: string, cnpj: string) {
     setArray([
       ...array,
-      { a: nome, b: cnpj, c: "C6", d: "D6" },
+      { a: nome, b: cnpj },
     ]);
   }
 
@@ -71,9 +70,7 @@ export default function Empresas() {
                   [...array].filter(
                     (item) =>
                       item.a.toLowerCase().includes(value) ||
-                      item.b.toLowerCase().includes(value) ||
-                      item.c.toLowerCase().includes(value) ||
-                      item.d.toLowerCase().includes(value)
+                      item.b.toLowerCase().includes(value) 
                   )
                 );
               }}
@@ -109,7 +106,7 @@ export default function Empresas() {
                   <DialogClose asChild>
                     <Button variant="outline">Cancelar</Button>
                   </DialogClose>
-                  <Button type="submit" onClick={() => addEmpresa(nameValue, cnpjValue)}>Salvar</Button>
+                  <Button type="button" onClick={() => addEmpresa(nameValue, cnpjValue)}>Salvar</Button>
                 </DialogFooter>
               </DialogContent>
             </form>
@@ -123,10 +120,8 @@ export default function Empresas() {
           <TableCaption>Lista de empresas registradas no sistema.</TableCaption>
           <TableHeader>
             <TableRow>
-              <TableHead className="pl-10">Cabeçalho A</TableHead>
-              <TableHead>Cabeçalho B</TableHead>
-              <TableHead>Cabeçalho C</TableHead>
-              <TableHead>Cabeçalho D</TableHead>
+              <TableHead className="pl-10">Nome</TableHead>
+              <TableHead>CNPJ</TableHead>
               <TableHead className="pl-15">Ações</TableHead>
             </TableRow>
           </TableHeader>
@@ -135,8 +130,6 @@ export default function Empresas() {
               <TableRow key={index} className="group">
                 <TableCell className="pl-10 font-medium text-left">{element.a}</TableCell>
                 <TableCell className="text-left">{element.b}</TableCell>
-                <TableCell className="text-left">{element.c}</TableCell>
-                <TableCell className="text-left">{element.d}</TableCell>
                 <TableCell>
                   <div className="invisible flex text-center flex-row justify-center group-hover:visible">
                     <Eye />
