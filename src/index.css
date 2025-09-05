@@ -103,13 +103,14 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1c3faa;
+  background-color: #171717;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition:  ease-in-out 0.06s;
   color: white
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #878787;
+  background-color: #404040;
 }
 button:focus,
 button:focus-visible {
@@ -122,13 +123,13 @@ button:focus-visible {
     background-color: #ffffff;
   }
     a {
-      color: #1c3faa;
+      color: #777777;
     }
   a:hover {
-    color: #1c3faa;
+    color: #a3a3a3;
   }
   button {
-    background-color: #1c3faa;
+    background-color: #171717;
   }
 }
 

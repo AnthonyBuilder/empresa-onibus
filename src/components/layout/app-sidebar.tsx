@@ -65,6 +65,11 @@ const data = {
           title: "Usuarios",
           url: "#",
           element: null,
+        },
+        {
+          title: "Rankings",
+          url: "#",
+          element: null,
         }
       ]
     },
