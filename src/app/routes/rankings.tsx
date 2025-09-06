@@ -10,8 +10,8 @@ import {
 
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
-import { Bus, GlassWaterIcon, LucideGlassWater, Percent, Rotate3D, TrendingUp, TrophyIcon } from "lucide-react"
-import { Area, AreaChart, Bar, BarChart, CartesianGrid, XAxis } from "recharts"
+import { Bus, GlassWaterIcon, Percent, Rotate3D, TrendingUp, TrophyIcon } from "lucide-react"
+import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { Separator } from "@/components/ui/separator"
@@ -26,7 +26,6 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { DropdownMenuCheckboxItem, type DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu"
 import { Button } from "@/components/ui/button"
-import type { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@radix-ui/react-select"
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/components/ui/chart"
 
 import {
@@ -351,7 +350,7 @@ export default function Rankings() {
                                     />
 
                                     <Tabs defaultValue="principal" className="mt-5">
-                                        <TabsList className="m-2">
+                                        <TabsList className="flex m-2 justify-center">
                                             <TabsTrigger value="principal" className="m-2">Principal</TabsTrigger>
                                             <TabsTrigger value="consumo" className="m-2">Consumo</TabsTrigger>
                                             <TabsTrigger value="seguranca" className="m-2">Segurança</TabsTrigger>
@@ -359,7 +358,7 @@ export default function Rankings() {
                                             <TabsTrigger value="ecologico" className="m-2">Ecológico</TabsTrigger>
                                         </TabsList>
                                         <TabsContent value="principal">
-                                            <div className="overflow-x-auto mt-6">
+                                            <div className="overflow-x-auto">
                                                 <h2 className="text-lg font-bold mt-5 mb-5">Principal</h2>
                                                 <table className="min-w-full border border-gray-200 rounded-md">
                                                     <thead>
