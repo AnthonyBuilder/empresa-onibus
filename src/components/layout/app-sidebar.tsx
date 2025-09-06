@@ -19,6 +19,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Separator } from "../ui/separator"
 import Rankings from "@/app/routes/rankings"
 import Usuarios from "@/app/routes/usuarios"
+import Linhas from "@/app/routes/linhas"
 
 const data = {
   navMain: [
@@ -50,9 +51,9 @@ const data = {
         },
         {
           title: "Linhas",
-          url: "#",
+          url: "linhas",
           isActive: false,
-          element: null,
+          element: <Linhas/>,
         },
         {
           title: "Operações",

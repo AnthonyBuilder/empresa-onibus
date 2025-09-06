@@ -8,6 +8,7 @@ import SubEmpresas from './app/routes/subempresas.tsx';
 import Empresas from './app/routes/empresas.tsx';
 import Rankings from './app/routes/rankings.tsx';
 import Usuarios from './app/routes/usuarios.tsx';
+import Linhas from './app/routes/linhas.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/" element={<App />}>
           <Route path="/empresas" element={<Empresas />} />
           <Route path="/sub-empresas" element={<SubEmpresas />} />
+          <Route path="/linhas" element={<Linhas />} />
           <Route path="/usuarios" element={<Usuarios />} />
           <Route path="/rankings" element={<Rankings />} />
         </Route>
