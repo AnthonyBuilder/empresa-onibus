@@ -58,7 +58,7 @@
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --ring: oklch(63.009% 0.00007 271.152);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -103,14 +103,14 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #171717;
+  background-color: #202020;
   cursor: pointer;
   transition:  ease-in-out 0.06s;
   color: white
 }
 button:hover {
-  border-color: #878787;
-  background-color: #404040;
+  border-color: #383838;
+  background-color: #222222;
 }
 button:focus,
 button:focus-visible {
@@ -126,10 +126,10 @@ button:focus-visible {
       color: #777777;
     }
   a:hover {
-    color: #a3a3a3;
+    color: #141414;
   }
   button {
-    background-color: #171717;
+    background-color: #272727;
   }
 }
 
@@ -292,6 +292,13 @@ button:focus-visible {
   --chart-5: oklch(0.645 0.246 16.439);
 }
 
+button:active {
+  background: #000000;  
+}
+
+button {
+  transition: all 200ms ease-in-out;
+}
 @theme inline {
   --font-inter: 'Inter', 'sans-serif';
   --font-manrope: 'Manrope', 'sans-serif';

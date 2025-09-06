@@ -17,6 +17,8 @@ import Empresas from "@/app/routes/empresas"
 import SubEmpresas from "@/app/routes/subempresas"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog"
 import { Separator } from "../ui/separator"
+import Rankings from "@/app/routes/rankings"
+import Usuarios from "@/app/routes/usuarios"
 
 const data = {
   navMain: [
@@ -64,13 +66,13 @@ const data = {
         },
         {
           title: "Usuarios",
-          url: "#",
-          element: null,
+          url: "usuarios",
+          element: <Usuarios/>,
         },
         {
           title: "Rankings",
-          url: "#",
-          element: null,
+          url: "rankings",
+          element: <Rankings />,
         }
       ]
     },

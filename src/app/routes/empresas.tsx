@@ -25,7 +25,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
-import { Eye, Pencil, Plus, PlusCircle, Trash } from "lucide-react";
+import { Eye, Pencil, PlusCircle, Trash } from "lucide-react";
 
 
 export default function Empresas() {
