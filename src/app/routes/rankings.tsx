@@ -63,7 +63,7 @@ function FilterDropdown({
         <DropdownMenuContent className="w-56">
           <Input className="mb-2" placeholder={placeholder} />
           <DropdownMenuSeparator />
-          {/* Renderiza dinamicamente os itens do dropdown com base em uma prop 'items' */}
+          {/* Apresenta dinamicamente os itens do dropdown com base em uma prop 'items' */}
           {Array.isArray(items) && items.length > 0 ? (
             items.map((item, idx) => (
               <DropdownMenuItem key={idx}>{item}</DropdownMenuItem>
