@@ -44,7 +44,15 @@ const chartData = [
   { name: '(RT) Marcha Lenta Excessiva', marchaLentaV: 214 }
 ];
 
-function FilterDropdown({ label, placeholder }: { label: string, placeholder: string }) {
+function FilterDropdown({
+  label,
+  placeholder,
+  items = [],
+}: {
+  label: string;
+  placeholder: string;
+  items?: string[];
+}) {
   return (
     <div className="flex flex-col space-y-1.5">
       <Label className="mb-3">{label}</Label>
@@ -55,9 +63,14 @@ function FilterDropdown({ label, placeholder }: { label: string, placeholder: st
         <DropdownMenuContent className="w-56">
           <Input className="mb-2" placeholder={placeholder} />
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Mercedes</DropdownMenuItem>
-          <DropdownMenuItem>BMW</DropdownMenuItem>
-          <DropdownMenuItem>Audi</DropdownMenuItem>
+          {/* Renderiza dinamicamente os itens do dropdown com base em uma prop 'items' */}
+          {Array.isArray(items) && items.length > 0 ? (
+            items.map((item, idx) => (
+              <DropdownMenuItem key={idx}>{item}</DropdownMenuItem>
+            ))
+          ) : (
+            <DropdownMenuItem disabled>Nenhum item encontrado</DropdownMenuItem>
+          )}
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
@@ -76,22 +89,14 @@ export default function Rankings() {
           <p className="mt-2">Relatorio de rankings das empresas.</p>
           <CollapsibleContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
-              <div className="flex flex-col space-y-1.5">
-                <Label className="mb-3">Data inicial</Label>
-                <Input type="date" placeholder="Data" className="w-full" />
+              <FilterDropdown label="Carros" placeholder="Procurar carros" items={["Carro 1", "Carro 2"]} />
+              <FilterDropdown label="Excluir Carros" placeholder="Procurar carros" items={["Carro 3", "Carro 4"]} />
+              <FilterDropdown label="Linhas" placeholder="Procurar linhas" items={["Linha 1", "Linha 2"]} />
+              <FilterDropdown label="Motoristas" placeholder="Procurar motoristas" items={["Motorista 1", "Motorista 2"]} />
+              <FilterDropdown label="Chassis" placeholder="Procurar chassis" items={["Chassi 1", "Chassi 2"]} />
+              <FilterDropdown label="Eventos de segurança" placeholder="Procurar eventos de segurança" items={["Evento 1", "Evento 2"]} />
+              <FilterDropdown label="Eventos de consumo" placeholder="Procurar eventos de consumo" items={["Evento 3", "Evento 4"]} />
               </div>
-              <div className="flex flex-col space-y-1.5">
-                <Label className="mb-3">Data final</Label>
-                <Input type="date" placeholder="Data" className="w-full" />
-              </div>
-              <FilterDropdown label="Carros" placeholder="Procurar carros" />
-              <FilterDropdown label="Excluir Carros" placeholder="Procurar carros" />
-              <FilterDropdown label="Linhas" placeholder="Procurar linhas" />
-              <FilterDropdown label="Motoristas" placeholder="Procurar motoristas" />
-              <FilterDropdown label="Chassis" placeholder="Procurar chassis" />
-              <FilterDropdown label="Eventos de segurança" placeholder="Procurar eventos de segurança" />
-              <FilterDropdown label="Eventos de consumo" placeholder="Procurar eventos de consumo" />
-            </div>
           </CollapsibleContent>
         </Collapsible>
 
