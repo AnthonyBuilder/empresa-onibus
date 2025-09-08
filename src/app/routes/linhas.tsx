@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table";
+import { Pencil } from "lucide-react";
 
 type Linha = {
     codigo: string;
@@ -17,6 +18,7 @@ const regioes = ["Norte", "Sul", "Leste", "Oeste"];
 const initialLinhas: Linha[] = [
     { codigo: "001", nome: "Linha 1", operacao: "Normal", regiao: "Norte" },
     { codigo: "002", nome: "Linha 2", operacao: "Especial", regiao: "Sul" },
+    { codigo: "003", nome: "Linha 3", operacao: "Noturna", regiao: "Leste" },
 ];
 
 export default function Linhas() {
@@ -64,7 +66,7 @@ export default function Linhas() {
 
                 <div className="flex mt-5 mb-4 justify-end">
                     {!editMode ? (
-                        <Button onClick={handleEnableEdit} className="">Habilitar Edição</Button>
+                        <Button onClick={handleEnableEdit} className=""><Pencil />Habilitar Edição</Button>
                     ) : (
                         <div className="flex gap-2">
                             <Button onClick={handleSave}>Salvar Alterações</Button>

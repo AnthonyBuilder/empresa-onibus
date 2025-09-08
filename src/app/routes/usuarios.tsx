@@ -59,34 +59,18 @@ export default function Usuarios() {
     <div>
       <div className="justify-self-start text-left mt-2 p-5 w-full">
         <div className="flex flex-row gap-4 items-center">
-          <div className="flex-1">
-            <h2 className="text-5xl font-bold">Usuarios</h2>
-            <p className="mt-2">Relatorio de todos os usuarios registrados.</p>
-
-            <SearchForm
-              className="place-self-start mt-4"
-              onChange={(event) => {
-                const form = event.target as HTMLFormElement;
-                const input = form.querySelector('input[type="search"]') as HTMLInputElement
-                const value = input ? input.value.toLowerCase() : '';
-                setArray(
-                  [...array].filter(
-                    (item) =>
-                      item.a.toLowerCase().includes(value) ||
-                      item.b.toLowerCase().includes(value) 
-                  )
-                );
-              }}
-            />
-          </div>
+          <div className="flex justify-start flex-col items-start mt-5 ml-5">
+                <h2 className="text-5xl font-bold">Linhas</h2>
+                <p className="mt-2">Relatorio de todas as linhas registradas.</p>
+            </div>
 
 
 
-
+            <div className="flex-1 justify-end flex flex-row items-center">    
           <Dialog>
             <form>
               <DialogTrigger asChild>
-                <Button variant="outline" className="mt-1"><PlusCircle/>Adicionar Usuario</Button>
+                <Button variant="outline" className="mt-1 justify-end"><PlusCircle/>Adicionar Usuario</Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
@@ -145,6 +129,7 @@ export default function Usuarios() {
               </DialogContent>
             </form>
           </Dialog>
+          </div>
         </div>
       </div>
 
