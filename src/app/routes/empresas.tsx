@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { SearchForm } from "@/components/layout/search-form";
 import { Button } from "@/components/ui/button";
-
 import {
   Table,
   TableBody,
@@ -10,8 +8,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
-
+} from "@/components/ui/table";
 import {
   Dialog,
   DialogClose,
@@ -21,119 +18,83 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-
-import { Eye, Pencil, PlusCircle, Trash } from "lucide-react";
-
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { PlusCircle, Eye, Pencil, Trash } from "lucide-react";
 
 export default function Empresas() {
+  const [nome, setNome] = useState("");
+  const [cnpj, setCnpj] = useState("");
+  const [empresas, setEmpresas] = useState<{ nome: string; cnpj: string }[]>([]);
 
-  const [nameValue, setNameValue] = useState('');
-  const [cnpjValue, setCnpjValue] = useState('');
-
-   function nameChangeValue(event: React.ChangeEvent<HTMLInputElement>) {
-    setNameValue(event.target.value);
+  function addEmpresa() {
+    setEmpresas([...empresas, { nome, cnpj }]);
+    setNome("");
+    setCnpj("");
   }
-
-  function cnpjChangeValue(event: React.ChangeEvent<HTMLInputElement>) {
-    setCnpjValue(event.target.value);
-  }
-
-  type Empresa = { a: string; b: string };
-  const [array, setArray] = useState<Empresa[]>([]);
-
-  function addEmpresa(nome: string, cnpj: string) {
-    setArray([
-      ...array,
-      { a: nome, b: cnpj },
-    ]);
-  }
-
 
   return (
     <div>
-      <div className="justify-self-start text-left mt-2 p-5 w-full">
-        <div className="flex flex-row gap-4 items-center">
-          <div className="flex-1">
-            <h2 className="text-5xl font-bold">Empresas</h2>
-            <p className="mt-2">Relatorio de todas as empresas registradas.</p>
-
-            <SearchForm
-              className="place-self-start mt-4"
-              onChange={(event) => {
-                const form = event.target as HTMLFormElement;
-                const input = form.querySelector('input[type="search"]') as HTMLInputElement
-                const value = input ? input.value.toLowerCase() : '';
-                setArray(
-                  [...array].filter(
-                    (item) =>
-                      item.a.toLowerCase().includes(value) ||
-                      item.b.toLowerCase().includes(value) 
-                  )
-                );
-              }}
-            />
-          </div>
-
-
-
-
-          <Dialog>
-            <form>
-              <DialogTrigger asChild>
-                <Button variant="outline" className="mt-1"><PlusCircle/>Adicionar Empresa</Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px]">
-                <DialogHeader>
-                  <DialogTitle>Adicionar Empresa</DialogTitle>
-                  <DialogDescription>
-                    Adicione uma nova empresa ao sistema.
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="grid gap-4">
-                  <div className="grid gap-3">
-                    <Label htmlFor="name-1">Nome</Label>
-                    <Input id="name-1" name="name" defaultValue="Pedro Duarte" value={nameValue} onChange={nameChangeValue} />
-                  </div>
-                  <div className="grid gap-3">
-                    <Label htmlFor="cnpj">CNPJ</Label>
-                    <Input id="cnpj" name="cnpj" value={cnpjValue} onChange={cnpjChangeValue} />
-                  </div>
-                </div>
-                <DialogFooter>
-                  <DialogClose asChild>
-                    <Button variant="outline">Cancelar</Button>
-                  </DialogClose>
-                  <Button type="button" onClick={() => addEmpresa(nameValue, cnpjValue)}>Salvar</Button>
-                </DialogFooter>
-              </DialogContent>
-            </form>
-          </Dialog>
+      <div className="flex flex-col md:flex-row gap-4 items-center justify-between p-5">
+        <div>
+          <h2 className="text-4xl font-bold text-left">Empresas</h2>
+          <p className="mt-2">Relatório de todas as empresas registradas.</p>
         </div>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button variant="outline" className="w-full md:w-auto flex items-center gap-2">
+              <PlusCircle className="w-5 h-5" />{" "}
+              <span className="hidden sm:inline">Adicionar Empresa</span>
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle>Adicionar Empresa</DialogTitle>
+              <DialogDescription>Adicione uma nova empresa ao sistema.</DialogDescription>
+            </DialogHeader>
+            <div className="grid gap-4">
+              <div className="grid gap-2">
+                <Label htmlFor="nome">Nome</Label>
+                <Input id="nome" value={nome} onChange={(e) => setNome(e.target.value)} />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="cnpj">CNPJ</Label>
+                <Input id="cnpj" value={cnpj} onChange={(e) => setCnpj(e.target.value)} />
+              </div>
+            </div>
+            <DialogFooter>
+              <DialogClose asChild>
+                <Button variant="outline" className="text-red-500">
+                  Cancelar
+                </Button>
+              </DialogClose>
+              <Button type="button" onClick={addEmpresa} className="text-green-600">
+                Salvar
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </div>
-
-      {/* tabelas */}
-      <div className="flex-1 p-5">
+      <div className="p-5">
         <Table>
           <TableCaption>Lista de empresas registradas no sistema.</TableCaption>
           <TableHeader>
             <TableRow>
-              <TableHead className="pl-10">Nome</TableHead>
+              <TableHead>Nome</TableHead>
               <TableHead>CNPJ</TableHead>
-              <TableHead className="pl-15">Ações</TableHead>
+              <TableHead>Ações</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {array.map((element, index) => (
-              <TableRow key={index} className="group">
-                <TableCell className="pl-10 font-medium text-left">{element.a}</TableCell>
-                <TableCell className="text-left">{element.b}</TableCell>
+            {empresas.map((e, i) => (
+              <TableRow key={i} className="group">
+                <TableCell>{e.nome}</TableCell>
+                <TableCell>{e.cnpj}</TableCell>
                 <TableCell>
-                  <div className="invisible flex text-center flex-row justify-center group-hover:visible">
+                  <div className="invisible group-hover:visible flex gap-3 justify-center">
                     <Eye />
-                    <Pencil className="ml-3 mr-3" />
+                    <Pencil />
                     <Trash />
                   </div>
                 </TableCell>
@@ -143,6 +104,6 @@ export default function Empresas() {
         </Table>
       </div>
     </div>
-  )
+  );
 }
 

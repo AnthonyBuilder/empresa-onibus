@@ -20,6 +20,9 @@ import { Separator } from "../ui/separator"
 import Rankings from "@/app/routes/rankings"
 import Usuarios from "@/app/routes/usuarios"
 import Linhas from "@/app/routes/linhas"
+import Operacoes from "@/app/routes/operacoes"
+import Regioes from "@/app/routes/regioes"
+import Garagens from "@/app/routes/garagens"
 
 const data = {
   navMain: [
@@ -46,8 +49,8 @@ const data = {
       items: [
         {
           title: "Garagens",
-          url: "#",
-          element: null,
+          url: "garagens",
+          element: <Garagens />,
         },
         {
           title: "Linhas",
@@ -57,13 +60,13 @@ const data = {
         },
         {
           title: "Operações",
-          url: "#",
-          element: null,
+          url: "operacoes",
+          element: <Operacoes />,
         },
         {
           title: "Regiões",
-          url: "#",
-          element: null,
+          url: "regioes",
+          element: <Regioes />  ,
         },
         {
           title: "Usuarios",
